@@ -1,0 +1,124 @@
+.innerLR
+  = form_for @customer, url: url do |f|
+    .wizard
+      .widget.widget-tabs.widget-wizard-pills
+        .widget-body
+          .tab-content
+            #tab1-3.tab-pane.active
+              .row-fluid
+                .span3
+                  strong Nama Pelanggan
+                .span9
+                  = f.text_field :name, placeholder: 'Nama Pelanggan', class: 'span4'
+                  - if @customer.errors[:name]
+                    - @customer.errors[:name].each do |e|
+                      p.error.help-block
+                        span.label.label-important= "name #  e  "
+                  .separator
+              .row-fluid
+                .span3
+                  strong Alamat Pelanggan
+                .span9
+                  = f.text_field :address, placeholder: 'Alamat Pelanggan', class: 'span4'
+                  - if @customer.errors[:address]
+                    - @customer.errors[:address].each do |e|
+                      p.error.help-block
+                        span.label.label-important= "address #  e  "
+                  .separator
+              .row-fluid
+                .span3
+                  strong Email Pelanggan
+                .span9
+                  = f.text_field :email, placeholder: 'Email Pelanggan', class: 'span4'
+                  - if @customer.errors[:email]
+                    - @customer.errors[:email].each do |e|
+                      p.error.help-block
+                        span.label.label-important= "email #  e  "
+                  .separator
+              .row-fluid
+                .span3
+                  strong Kota
+                .span9
+                  = f.text_field :city, placeholder: 'Kota', class: 'span4'
+                  - if @customer.errors[:city]
+                    - @customer.errors[:city].each do |e|
+                      p.error.help-block
+                        span.label.label-important= "city #  e  "
+                  .separator
+              .row-fluid
+                .span3
+                  strong Provinsi
+                .span9
+                  = f.text_field :province, placeholder: 'Provinsi', class: 'span4'
+                  - if @customer.errors[:province]
+                    - @customer.errors[:province].each do |e|
+                      p.error.help-block
+                        span.label.label-important= "province #  e  "
+                  .separator
+              .row-fluid
+                .span3
+                  strong Kode Pos
+                .span9
+                  = f.text_field :postal_code, placeholder: 'Kode Pos', class: 'span4'
+                  - if @customer.errors[:postal_code]
+                    - @customer.errors[:postal_code].each do |e|
+                      p.error.help-block
+                        span.label.label-important= "postal code #  e  "
+                  .separator
+              .row-fluid
+                .span3
+                  strong Nomer Telepon
+                .span9
+                  = f.telephone_field :phone_number, placeholder: 'Nomer Telepon', class: 'span4'
+                  - if @customer.errors[:phone_number]
+                    - @customer.errors[:phone_number].each do |e|
+                      p.error.help-block
+                        span.label.label-important= "phone number #  e  "
+                  .separator
+              .row-fluid
+                .span3
+                  strong Pimpinan Pelanggan
+                .span9
+                  = f.text_field :owner, placeholder: 'Pimpinan Pelanggan', class: 'span4'
+                  - if @customer.errors[:owner]
+                    - @customer.errors[:owner].each do |e|
+                      p.error.help-block
+                        span.label.label-important= "owner #  e  "
+                  .separator
+              .row-fluid
+                .widget data-toggle="collapse-widget"
+                  .widget-head
+                    h4.heading Penanggung Jawab
+                  .widget-body.collapse.in
+                    .row-fluid
+                      .span3
+                        strong Nama
+                      .span9
+                        = f.text_field :caretaker, placeholder: 'Penanggung Jawab', class: 'span4'
+                        - if @customer.errors[:caretaker]
+                          - @customer.errors[:caretaker].each do |e|
+                            p.error.help-block
+                              span.label.label-important= "Penanggung Jawab #  e  "
+                        .separator
+                    .row-fluid
+                      .span3
+                        strong Email
+                      .span9
+                        = f.text_field :caretaker_email, placeholder: 'Email Penanggung Jawab', class: 'span4'
+                        - if @customer.errors[:caretaker_email]
+                          - @customer.errors[:caretaker_email].each do |e|
+                            p.error.help-block
+                              span.label.label-important= "Email Penanggung Jawab #  e  "
+                        .separator
+                    .row-fluid
+                      .span3
+                        strong Nomer Telepon
+                      .span9
+                        = f.telephone_field :caretaker_phone_number, placeholder: 'Nomer Telepon Penanggung Jawab', class: 'span4'
+                        - if @customer.errors[:caretaker_phone_number]
+                          - @customer.errors[:caretaker_phone_number].each do |e|
+                            p.error.help-block
+                              span.label.label-important= "Nomor Telephone Penanggung Jawab #  e  "
+                        .separator
+            = f.button type: :submit, class: 'btn btn-icon btn-primary glyphicons circle_ok'
+            = link_to 'Cancel', customers_path, class: 'btn btn-icon btn-default glyphicons circle_remove'

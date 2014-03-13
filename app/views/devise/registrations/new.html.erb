@@ -1,0 +1,26 @@
+<div id='login'>
+  <div class="form-signin">
+    <h3>Sign up</h3>
+    <div class="inner">
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div><%= f.label :email, class: 'strong' %><br />
+        <%= f.email_field :email, :autofocus => true, class: 'input-block-level' %></div>
+
+        <div><%= f.label :name, class: 'strong' %><br />
+        <%= f.text_field :name, :autofocus => true, class: 'input-block-level' %></div>
+
+        <div><%= f.label :password, class: 'strong' %><br />
+        <%= f.password_field :password, class: 'input-block-level' %></div>
+
+        <div><%= f.label :password_confirmation, class: 'strong' %><br />
+        <%= f.password_field :password_confirmation, class: 'input-block-level' %></div>
+
+        <div><%= f.submit "Sign up", class: 'btn btn-block btn-primary' %></div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>

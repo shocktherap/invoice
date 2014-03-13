@@ -1,0 +1,19 @@
+.innerLR
+  = form_for @category, url: url do |f|
+    .wizard
+      .widget.widget-tabs.widget-wizard-pills
+        .widget-body
+          .tab-content
+            #tab1-3.tab-pane.active
+              .row-fluid
+                .span3
+                  strong Nama Category
+                .span9
+                  = f.text_field :name, placeholder: 'Nama Category', class: 'span4'
+                  - if @category.errors[:name]
+                    - @category.errors[:name].each do |e|
+                      p.error.help-block
+                        span.label.label-important= "name #  e  "
+                  .separator
+            = f.button type: :submit, class: 'btn btn-icon btn-primary glyphicons circle_ok'
+            = link_to 'Cancel', categories_path, class: 'btn btn-icon btn-default glyphicons circle_remove'

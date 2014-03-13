@@ -1,0 +1,50 @@
+<div id="content-notification" class="notyfy_container_inline">
+  <li class="notyfy_wrapper notyfy_default" style="cursor: pointer;">
+    <div class="notyfy_bar">
+      <div class="notyfy_message">
+        <span class="notyfy_text">
+          <h4>Welcome back <%= current_user.name %>!</h4>
+          <% unless current_user.company %>
+          <p><strong>Notification : </strong> please create your own company.</p>
+          <% end %>
+          <% if current_user.customers.nil? %>
+          <p><strong>Notification : </strong> you don't have any customer.</p>
+          <% end %>
+        </span>
+      </div>
+    </div>
+  </li>
+</div>
+
+<h3 class="heading-mosaic">Overview</h3>
+
+<div class="row-fluid row-merge">
+  <div class="span6">
+    <div class="innerAll">
+      <div class="row-fluid">
+        <div class="span4">
+          <a href="" class="widget-stats widget-stats-2 widget-stats-3">
+            <span class="sparkline"><canvas width="49" height="35" style="display: inline-block; width: 49px; height: 35px; vertical-align: top;"></canvas></span>
+            <span class="txt"><span class="count"><%= current_user.customers.count %></span> Customers</span>
+            <div class="clearfix"></div>
+          </a>
+        </div>
+        <div class="span4">
+          <a href="" class="widget-stats widget-stats-2 widget-stats-3">
+            <span class="sparkline success"><canvas width="49" height="35" style="display: inline-block; width: 49px; height: 35px; vertical-align: top;"></canvas></span>
+            <span class="txt"><span class="count"><%= Picture.count %></span> Picture</span>
+            <div class="clearfix"></div>
+          </a>
+        </div>
+        <div class="span4">
+          <a href="" class="widget-stats widget-stats-2 widget-stats-3">
+            <span class="sparkline danger"><canvas width="49" height="35" style="display: inline-block; width: 49px; height: 35px; vertical-align: top;"></canvas></span>
+            <span class="txt"><span class="count">12,566</span> Photos</span>
+            <div class="clearfix"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

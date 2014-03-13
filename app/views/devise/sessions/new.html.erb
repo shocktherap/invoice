@@ -1,0 +1,24 @@
+  <div id='login'>
+    <div class="form-signin">
+      <h3>Sign in to your Invoice account</h3>
+          <div class="inner">
+            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+              <%= f.label :email, class: 'strong' %>
+              <%= f.email_field :email, :autofocus => true, class: 'input-block-level', placeholder: 'Your Email address' %>
+              <%= f.label :password, class: 'strong' %>
+              <%= f.password_field :password, autofocus: true, class: 'input-block-level', placeholder: 'Your Password' %>
+              <div class="row-fluid">
+                <div class="span5 center">
+                  <%= f.submit "Sign in", class: 'btn btn-block btn-primary' %>
+                </div>
+                <div class="span2 center">or</div>
+                <div class="span5 center">
+                  <%= link_to "Sign up", new_registration_path(resource_name), class: 'btn btn-block btn-info' %><br />
+                </div>
+              </div>
+            <% end %>
+          </div>
+      <div class="ribbon-wrapper"><div class="ribbon primary">Invoice</div></div>
+    </div>
+  </div>

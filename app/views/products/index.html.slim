@@ -1,0 +1,24 @@
+.widget
+  .widget-head
+    h4.heading Daftar Product
+  .widget-body
+    = link_to 'Product baru', new_product_path, class: 'btn btn-primary btn-icon glyphicons envelope pull-right'
+    table.table.table-bordered
+      thead
+        tr
+          th Nama
+          th Product
+          th Harga
+          th Brand
+          th Kode
+          th
+      tbody
+        - @products.each do |c|
+          tr
+            td= link_to c.name, product_path(c)
+            td= c.category_id
+            td= number_to_currency( c.price, unit: "Rp. " )
+            td= c.brand
+            td= c.code
+            td.center= link_to 'Edit', edit_product_path(c)
+            td.center= link_to 'Delete', product_path(c), method: :delete

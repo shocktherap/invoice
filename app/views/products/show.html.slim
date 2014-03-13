@@ -1,0 +1,39 @@
+.widget
+  .widget-head
+    h3.heading Product Profile
+  .widget-body
+    .row-fluid
+      = link_to 'Edit Profile Product', edit_product_path(@product), class: 'btn btn-primary pull-right'
+      .span3
+      .span6
+        table.table.table-bordered.table-striped
+          thead
+            tr
+              th.center.span5
+              th.span7
+          tbody
+            tr
+              td.center
+                strong Nama
+              td.center= @product.name
+            tr
+              td.center
+                strong Harga
+              td.center= @product.price
+            tr
+              td.center
+                strong Brand
+              td.center= @product.brand
+            tr
+              td.center
+                strong Description
+              td.center= @product.description
+            tr
+              td.center
+                strong Code
+              td.center= @product.code
+            tr
+              td.center
+                strong Product Picture
+              td= image_tag @product.picture.file.url
+      .span3

@@ -1,0 +1,38 @@
+.widget
+  .widget-head
+    h4.heading Daftar Pelanggan
+  .widget-body
+    .btn-group
+      a.btn.dropdown-toggle data-toggle='dropdown' href='#'
+        | Edit&nbsp;
+        span.caret
+      ul.dropdown-menu.pull-left
+        li= link_to 'Destroy', 'javascript:void(0);', data: { batch_for: 'customer_ids',
+                                                               url: destroy_members_customers_path,
+                                                               authenticity_token: form_authenticity_token,
+                                                               params_prefix: 'customer' }
+    = link_to 'Pelanggan baru', new_customer_path, class: 'btn btn-primary btn-icon glyphicons envelope pull-right'
+    table.table.table-bordered
+      thead
+        tr
+          th style='width: 1%;'
+            = check_box_tag :customer_ids, nil, false, data: { select: true }
+          th Nama
+          th Email
+          th Alamat
+          th Nomer Telepon
+          th Penanggung Jawab
+          th
+      tbody
+        - @customers.each do |c|
+          tr
+            td.center
+              = check_box_tag "customer_ids[]", c.id, false,
+                              data: { customer_ids: c.id }
+            td= c.name
+            td= c.email
+            td= c.address
+            td= c.phone_number
+            td= c.caretaker
+            td.center= link_to 'Show', customer_path(c)
+            td.center= link_to 'Delete', customer_path(c), method: :delete

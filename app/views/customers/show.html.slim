@@ -1,0 +1,55 @@
+.widget
+  .widget-head
+    h3.heading Customer Profile
+  .widget-body
+    .row-fluid
+      = link_to 'Edit Profile Company', edit_customer_path(@customer), class: 'btn btn-primary pull-right'
+      .span3
+      .span6
+        table.table.table-bordered.table-striped
+          thead
+            tr
+              th.center.span5
+              th.span7
+          tbody
+            tr
+              td.center
+                strong Nama
+              td.center= @customer.name
+            tr
+              td.center
+                strong Alamat
+              td.center= @customer.address
+            tr
+              td.center
+                strong Kota
+              td.center= @customer.city
+            tr
+              td.center
+                strong Provinsi
+              td.center= @customer.province
+            tr
+              td.center
+                strong Kode Pos
+              td.center= @customer.postal_code
+            tr
+              td.center
+                strong Nomer Telepon
+              td.center= @customer.phone_number
+            tr
+              td.center
+                strong Pimpinan Perusahaan
+              td.center= @customer.owner
+            tr
+              td.center
+                strong Penanggung Jawab
+              td.center= @customer.caretaker
+            tr
+              td.center
+                strong Email Penanggung Jawab
+              td.center= @customer.caretaker_email
+            tr
+              td.center
+                strong Nomer Telepon Penanggung Jawab
+              td.center= @customer.caretaker_phone_number
+      .span3

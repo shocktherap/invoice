@@ -1,0 +1,82 @@
+.innerLR
+  = form_for @product, url: url do |f|
+    .wizard
+      .widget.widget-tabs.widget-wizard-pills
+        .widget-body
+          .tab-content
+            #tab1-3.tab-pane.active
+              .row-fluid
+                .span3
+                  strong Nama Product
+                .span9
+                  = f.text_field :name, placeholder: 'Nama Product', class: 'span4'
+                  - if @product.errors[:name]
+                    - @product.errors[:name].each do |e|
+                      p.error.help-block
+                        span.label.label-important= "name #{ e }  "
+                  .separator
+              .row-fluid
+                .span3
+                  strong Code Product
+                .span9
+                  = f.text_field :code, placeholder: 'Code Product', class: 'span4'
+                  - if @product.errors[:code]
+                    - @product.errors[:code].each do |e|
+                      p.error.help-block
+                        span.label.label-important= "code #{ e }  "
+                  .separator
+              .row-fluid
+                .span3
+                  strong Harga Product
+                .span9
+                  = f.text_field :price, placeholder: 'Harga Product', class: 'span4'
+                  - if @product.errors[:price]
+                    - @product.errors[:price].each do |e|
+                      p.error.help-block
+                        span.label.label-important= "price #{ e }  "
+                  .separator
+              .row-fluid
+                .span3
+                  strong Kategori
+                .span9
+                  = f.select :category_id, options_from_collection_for_select(@category = Category.all, "id", "name")
+                  .separator
+              .row-fluid
+                .span3
+                  strong Merk Product
+                .span9
+                  = f.text_field :brand, placeholder: 'Brand Product', class: 'span4'
+                  - if @product.errors[:brand]
+                    - @product.errors[:brand].each do |e|
+                      p.error.help-block
+                        span.label.label-important= "brand #{ e }  "
+                  .separator
+              .row-fluid
+                .span3
+                  strong Description
+                .span9
+                  = f.text_area :description, placeholder: 'Description', class: 'span4', rows: 5
+                  - if @product.errors[:description]
+                    - @product.errors[:description].each do |e|
+                      p.error.help-block
+                        span.label.label-important= "description #{ e }  "
+                  .separator
+              = f.fields_for :picture do |picture_form|
+                .row-fluid
+                  .span3
+                    strong Gambar Product
+                  .span9
+                    .fileupload.fileupload-new data-provides="fileupload"
+                      input name="" type="hidden" value=""
+                        span.btn.btn-default.btn-file
+                          span.fileupload-new Select file
+                          span.fileupload-exists Change
+                          = picture_form.file_field :file
+                        span.fileupload-preview
+                        a.close.fileupload-exists data-dismiss="fileupload" href="#" style=("float: none")  ×
+                    - unless @product.new_record?
+                      .thumbnail.span3
+                        = image_tag picture_form.object.file.url
+                  .separator
+            = f.button type: :submit, class: 'btn btn-icon btn-primary glyphicons circle_ok'
+            = link_to 'Cancel', products_path, class: 'btn btn-icon btn-default glyphicons circle_remove'
