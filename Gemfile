@@ -22,3 +22,8 @@ group :development do
 end
 
 gem 'devise'
+gem 'nifty-generators'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'twitter'
+gem 'fb_graph'
