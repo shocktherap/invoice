@@ -10,6 +10,9 @@
           <% if current_user.customers.nil? %>
           <p><strong>Notification : </strong> you don't have any customer.</p>
           <% end %>
+          <% if current_user.password == current_user.email %>
+          <p><strong>Notification : </strong> Password same as email, please change</p>
+          <% end %>
         </span>
       </div>
     </div>

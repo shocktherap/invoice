@@ -1,6 +1,7 @@
 Invoice::Application.routes.draw do
 
-  devise_for :users
+  resources :authentications
+  # devise_for :users
 
   resources :companies
   resources :customers do
@@ -11,5 +12,10 @@ Invoice::Application.routes.draw do
   resources :categories
   resources :products
   root :to => "home#index"
+  # root to: 'authentications#home'
+
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
+  controllers: { omniauth_callbacks: "authentications", registrations: "registrations" }
+
 
 end

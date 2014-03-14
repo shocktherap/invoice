@@ -1,9 +1,14 @@
-  <div id='login'>
-    <div class="form-signin">
-      <h3>Sign in to your Invoice account</h3>
-          <div class="inner">
-            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+<div id="login">
 
+  <div class="form-signin">
+    <h3>Sign in to Your Account</h3>
+
+    <div class="row-fluid row-merge">
+
+      <div class="span7">
+        <div class="inner">
+
+          <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
               <%= f.label :email, class: 'strong' %>
               <%= f.email_field :email, :autofocus => true, class: 'input-block-level', placeholder: 'Your Email address' %>
               <%= f.label :password, class: 'strong' %>
@@ -18,7 +23,22 @@
                 </div>
               </div>
             <% end %>
-          </div>
-      <div class="ribbon-wrapper"><div class="ribbon primary">Invoice</div></div>
+
+        </div>
+      </div>
+
+      <div class="span5">
+        <div class="inner center">
+          <p>Alternatively</p>
+          <%= link_to "<i></i><span>Join using your</span><span class='strong'>Twitter Account</span>".html_safe, user_omniauth_authorize_path(:twitter), class: 'btn btn-icon-stacked btn-block btn-twitter glyphicons twitter' %>
+          <p>or</p>
+          <%= link_to "<i></i><span>Join using your</span><span class='strong'>Facebook Account</span>".html_safe, user_omniauth_authorize_path(:facebook), class: 'btn btn-icon-stacked btn-block btn-facebook glyphicons facebook' %>
+        </div>
+      </div>
+
     </div>
+
+    <div class="ribbon-wrapper"><div class="ribbon primary">members</div></div>
   </div>
+
+</div>
