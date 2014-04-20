@@ -5,7 +5,7 @@ class CustomersController < ApplicationController
   end
 
   def index
-    @customers = user.customers.all
+    @customers = user.customers
   end
 
   def create

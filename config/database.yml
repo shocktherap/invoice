@@ -4,4 +4,4 @@ development:
   database: invoice_development
   pool: 5
   username: moccaify
-  password:
+  password: kmzway87aa
