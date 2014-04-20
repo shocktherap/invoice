@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_one   :company
   has_many  :customers
   has_many  :products
+  has_many  :billings, through: :user_billings
+  has_many  :user_billings
 
   has_many :authentications
 

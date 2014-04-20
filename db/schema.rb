@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140314023621) do
+ActiveRecord::Schema.define(version: 20140420164847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,20 @@ ActiveRecord::Schema.define(version: 20140314023621) do
     t.string   "uid"
     t.string   "token"
     t.string   "token_secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "billings", force: true do |t|
+    t.integer  "number"
+    t.integer  "customer_id"
+    t.date     "published"
+    t.date     "expired"
+    t.string   "purchase_order"
+    t.text     "note"
+    t.integer  "discount"
+    t.integer  "tax"
+    t.integer  "delivery_service"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -73,16 +87,11 @@ ActiveRecord::Schema.define(version: 20140314023621) do
     t.datetime "updated_at"
   end
 
-  create_table "invoices", force: true do |t|
-    t.integer  "number"
-    t.integer  "customer_id"
-    t.date     "published"
-    t.date     "expired"
-    t.string   "purchase_order"
-    t.text     "note"
-    t.integer  "discount"
-    t.integer  "tax"
-    t.integer  "delivery_service"
+  create_table "items", force: true do |t|
+    t.integer  "billing_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.float    "total"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -97,6 +106,26 @@ ActiveRecord::Schema.define(version: 20140314023621) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "brand"
+  end
+
+  create_table "tickets", force: true do |t|
+    t.integer  "billing_id"
+    t.string   "from"
+    t.string   "destination"
+    t.datetime "departure"
+    t.datetime "arrive"
+    t.datetime "class"
+    t.string   "passenger"
+    t.integer  "quantity"
+    t.float    "price"
+    t.float    "total"
+  end
+
+  create_table "user_billings", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "billing_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
