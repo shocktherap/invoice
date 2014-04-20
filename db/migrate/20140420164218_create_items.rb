@@ -4,6 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.integer :billing_id
       t.integer :product_id
       t.integer :quantity
+      t.integer :discount
       t.float   :total
 
       t.timestamps

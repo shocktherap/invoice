@@ -9,6 +9,7 @@ class CreateTickets < ActiveRecord::Migration
       t.datetime  :class
       t.string    :passenger
       t.integer   :quantity
+      t.integer   :discount
       t.float     :price
       t.float     :total
 
