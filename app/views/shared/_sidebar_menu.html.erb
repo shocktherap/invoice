@@ -3,17 +3,17 @@
     <div class="slim-scroll" data-scroll-height="800px" style="overflow: hidden; width: auto; height: 2432px;">
       <ul>
       <% side_menu.each do |value| %>
-        <li class="large glyphicons <%= value[:icon] %> <%= 'active' if params[:controller] ==  value[:controller] %>"><%= link_to "<i></i><span>#{ value[:title] }</span>".html_safe, send(value[:url]) %>
-            <%= "<span class='count'>#{ current_user.customers.count }</span>".html_safe if value[:controller] == 'customers' %>
+        <li class="large glyphicons <%= value[:icon] %> <%= 'active' if params[:controller] ==  value[:controller] %>"><%= link_to "#{ value[:title] }".html_safe, send(value[:url]) %>
+            <%= "<div class='count'>#{ current_user.customers.count }</div>".html_safe if value[:controller] == 'customers' %>
         </li>
       <% end %>
         <li class="hasSubmenu large glyphicons t-shirt <%= 'active' if params[:controller] == 'categories' || 'products' %>">
-          <a data-toggle="collapse" href="#menu_extra" class="collapsed"><i></i><span>Product</span></a>
+          <a data-toggle="collapse" href="#menu_extra" class="collapsed">Product</a>
           <ul class="collapse" id="menu_extra" style="height: 0px;">
-            <li><%= link_to '<span> Stuff </span>'.html_safe, products_path %></li>
-            <li><%= link_to '<span> Kategori </span>'.html_safe, categories_path %></li>
+            <li><%= link_to 'Stuff'.html_safe, products_path %></li>
+            <li><%= link_to 'Kategori'.html_safe, categories_path %></li>
           </ul>
-          <span class="count"><%= Product.count %></span>
+          <div class="count"><%= Product.count %></div>
         </li>
       </ul>
       <div class="clearfix"></div>
@@ -21,15 +21,15 @@
 
       <div class="widget-sidebar-stats">
         <strong>3,540</strong>
-        <span>Messages</span>
-        <span class="pull-right sparkline"><canvas width="49" height="20" style="display: inline-block; width: 49px; height: 20px; vertical-align: top;"></canvas></span>
+        Messages
+        <div class="pull-right sparkline"><canvas width="49" height="20" style="display: inline-block; width: 49px; height: 20px; vertical-align: top;"></canvas></div>
         <div class="clearfix"></div>
       </div>
 
       <div class="widget-sidebar-stats">
         <strong>2,510,402</strong>
-        <span>Photos</span>
-        <span class="pull-right sparkline"><canvas width="49" height="20" style="display: inline-block; width: 49px; height: 20px; vertical-align: top;"></canvas></span>
+        Photos
+        <div class="pull-right sparkline"><canvas width="49" height="20" style="display: inline-block; width: 49px; height: 20px; vertical-align: top;"></canvas></div>
         <div class="clearfix"></div>
       </div>
       <div class="separator bottom"></div>

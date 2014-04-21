@@ -1,25 +1,25 @@
 <ul class="topnav pull-right">
   <li class="account">
     <a data-toggle="dropdown" class="glyphicons logout lock">
-      <span class="hidden-phone text"><%= current_user.name %></span>
+      <div class="hidden-phone text"><%= current_user.name %></div>
       <i></i>
     </a>
     <ul class="dropdown-menu pull-right">
       <li class="highlight profile">
-        <span>
-          <span class="heading">Profile
-            <%= link_to 'Edit Profile', edit_user_registration_path , class: 'pull-right' %></span>
-          <span class="img"></span>
-          <span class="details">
+        <div>
+          <div class="heading">Profile
+            <%= link_to 'Edit Profile', edit_user_registration_path , class: 'pull-right' %></div>
+          <div class="img"></div>
+          <div class="details">
             <%= current_user.email %>
-          </span>
-          <span class="clearfix"></span>
-        </span>
+          </div>
+          <div class="clearfix"></div>
+        </div>
       </li>
       <li>
-        <span>
+        <div>
           <%= link_to 'logout', destroy_user_session_path, method: :delete, class: 'btn btn-default btn-mini pull-right' %>
-        </span>
+        </div>
       </li>
     </ul>
   </li>

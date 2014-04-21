@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Invoice::Application.config.secret_key_base = '1053352c14b573f0582490ccbdb1148144bf2a86c4f3af97f16fcb68a2f12eb8ec3e163971c6e470978232882509849210b923351ac3ab768632c45f1a33cf2a'
+Invoice::Application.config.secret_key_base = 'e6a566d5599e5a73dc4b9767e3ea2c8a048c009286b2ef2a24ddb56983896eef885152479021156104791fef70dbfed70503f61a137b3cb23c43bd9c9bf4c8dc'

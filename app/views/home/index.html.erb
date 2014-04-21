@@ -2,7 +2,7 @@
   <li class="notyfy_wrapper notyfy_default" style="cursor: pointer;">
     <div class="notyfy_bar">
       <div class="notyfy_message">
-        <span class="notyfy_text">
+        <div class="notyfy_text">
           <h4>Welcome back <%= current_user.name %>!</h4>
           <% unless current_user.company %>
           <p><strong>Notification : </strong> please create your own company.</p>
@@ -13,7 +13,7 @@
           <% if current_user.valid_password?(current_user.email) %>
           <p><strong>Notification : </strong> Password same as email, please change</p>
           <% end %>
-        </span>
+        </div>
       </div>
     </div>
   </li>
@@ -27,22 +27,22 @@
       <div class="row-fluid">
         <div class="span4">
           <a href="" class="widget-stats widget-stats-2 widget-stats-3">
-            <span class="sparkline"><canvas width="49" height="35" style="display: inline-block; width: 49px; height: 35px; vertical-align: top;"></canvas></span>
-            <span class="txt"><span class="count"><%= current_user.customers.count %></span> Customers</span>
+            <class class="sparkline"><canvas width="49" height="35" style="display: inline-block; width: 49px; height: 35px; vertical-align: top;"></canvas></class>
+            <div class="txt"><div class="count"><%= current_user.customers.count %></div> Customers</div>
             <div class="clearfix"></div>
           </a>
         </div>
         <div class="span4">
           <a href="" class="widget-stats widget-stats-2 widget-stats-3">
-            <span class="sparkline success"><canvas width="49" height="35" style="display: inline-block; width: 49px; height: 35px; vertical-align: top;"></canvas></span>
-            <span class="txt"><span class="count"><%= Picture.count %></span> Picture</span>
+            <div class="sparkline success"><canvas width="49" height="35" style="display: inline-block; width: 49px; height: 35px; vertical-align: top;"></canvas></div>
+            <div class="txt"><div class="count"><%= Picture.count %></div> Picture</div>
             <div class="clearfix"></div>
           </a>
         </div>
         <div class="span4">
           <a href="" class="widget-stats widget-stats-2 widget-stats-3">
-            <span class="sparkline danger"><canvas width="49" height="35" style="display: inline-block; width: 49px; height: 35px; vertical-align: top;"></canvas></span>
-            <span class="txt"><span class="count">12,566</span> Photos</span>
+            <div class="sparkline danger"><canvas width="49" height="35" style="display: inline-block; width: 49px; height: 35px; vertical-align: top;"></canvas></div>
+            <div class="txt"><div class="count">12,566</div> Photos</div>
             <div class="clearfix"></div>
           </a>
         </div>
