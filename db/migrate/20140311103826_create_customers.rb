@@ -13,6 +13,7 @@ class CreateCustomers < ActiveRecord::Migration
       t.string  :caretaker
       t.string  :caretaker_email
       t.string  :caretaker_phone_number
+
       t.timestamps
     end
   end

@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20140420164847) do
     t.integer  "billing_id"
     t.integer  "product_id"
     t.integer  "quantity"
+    t.integer  "discount"
     t.float    "total"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -117,6 +118,7 @@ ActiveRecord::Schema.define(version: 20140420164847) do
     t.datetime "class"
     t.string   "passenger"
     t.integer  "quantity"
+    t.integer  "discount"
     t.float    "price"
     t.float    "total"
   end
