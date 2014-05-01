@@ -12,7 +12,6 @@
 
 class Company < ActiveRecord::Base
   has_one    :picture, as: :owner, dependent: :destroy
-
   accepts_nested_attributes_for :picture
 
   belongs_to :user

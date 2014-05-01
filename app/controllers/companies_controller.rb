@@ -1,8 +1,7 @@
 class CompaniesController < ApplicationController
 
   def new
-    return redirect_to company_path(company) unless company.new_record?
-    company
+    return redirect_to company_path(company) if user.company.present?
     company.build_picture
   end
 
@@ -33,10 +32,10 @@ class CompaniesController < ApplicationController
   protected
 
   def company
-    @company ||= unless user.company
-                  user.build_company
-                else
+    @company ||= if user.company.present?
                   user.company
+                else
+                  user.build_company
                 end
   end
 

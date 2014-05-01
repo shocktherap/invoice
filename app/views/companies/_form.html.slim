@@ -13,7 +13,7 @@
                   - if @company.errors[:name]
                     - @company.errors[:name].each do |e|
                       p.error.help-block
-                        span.label.label-important= "name #  e  "
+                        .label.label-important= "name #{ e }"
                   .separator
               .row-fluid
                 .span3
@@ -23,7 +23,7 @@
                   - if @company.errors[:address]
                     - @company.errors[:address].each do |e|
                       p.error.help-block
-                        span.label.label-important= "address #  e  "
+                        .label.label-important= "address #{ e }"
                   .separator
               .row-fluid
                 .span3
@@ -33,7 +33,7 @@
                   - if @company.errors[:city]
                     - @company.errors[:city].each do |e|
                       p.error.help-block
-                        span.label.label-important= "city #  e  "
+                        .label.label-important= "city #{ e }"
                   .separator
               .row-fluid
                 .span3
@@ -43,7 +43,7 @@
                   - if @company.errors[:province]
                     - @company.errors[:province].each do |e|
                       p.error.help-block
-                        span.label.label-important= "province #  e  "
+                        .label.label-important= "province #{ e }"
                   .separator
               .row-fluid
                 .span3
@@ -53,7 +53,7 @@
                   - if @company.errors[:postalcode]
                     - @company.errors[:postalcode].each do |e|
                       p.error.help-block
-                        span.label.label-important= "postalcode #  e  "
+                        .label.label-important= "postalcode #{ e }"
                   .separator
               .row-fluid
                 .span3
@@ -63,7 +63,7 @@
                   - if @company.errors[:sector]
                     - @company.errors[:sector].each do |e|
                       p.error.help-block
-                        span.label.label-important= "sector #  e  "
+                        .label.label-important= "sector #{ e }"
                   .separator
               .row-fluid
                 .span3
@@ -73,7 +73,7 @@
                   - if @company.errors[:phone_number]
                     - @company.errors[:phone_number].each do |e|
                       p.error.help-block
-                        span.label.label-important= "phone number #  e  "
+                        .label.label-important= "phone number #{ e }"
                   .separator
               .row-fluid
                 .span3
@@ -83,7 +83,7 @@
                   - if @company.errors[:owner]
                     - @company.errors[:owner].each do |e|
                       p.error.help-block
-                        span.label.label-important= "owner #  e  "
+                        .label.label-important= "owner #{ e }"
                   .separator
               = co.fields_for :picture do |picture_form|
                 .row-fluid
@@ -92,11 +92,11 @@
                   .span9
                     .fileupload.fileupload-new data-provides="fileupload"
                       input name="" type="hidden" value=""
-                        span.btn.btn-default.btn-file
-                          span.fileupload-new Select file
-                          span.fileupload-exists Change
+                        .btn.btn-default.btn-file
+                          .fileupload-new Select file
+                          .fileupload-exists Change
                           = picture_form.file_field :file
-                        span.fileupload-preview
+                        .fileupload-preview
                         a.close.fileupload-exists data-dismiss="fileupload" href="#" style=("float: none")  ×
                     - unless @company.new_record?
                       .thumbnail.span3

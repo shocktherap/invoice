@@ -3,8 +3,8 @@
     h3.heading Company Profile
   .widget-body
     .row-fluid
-      = link_to 'Edit Profile Company', edit_company_path(@company), class: 'btn btn-primary pull-right'
       .span3
+        = link_to 'Edit Profile Company', edit_company_path(@company), class: 'btn btn-primary'
       .span6
         table.table.table-bordered.table-striped
           thead
@@ -43,5 +43,11 @@
             tr
               td.center
                 strong Logo Perusahaan
-              td= image_tag @company.picture.file.url
+              - if @company.picture.present?
+                td= image_tag @company.picture.file.url
+              - else
+                td= image_tag "http://dummyimage.com/400x400/232323/ffffff&amp"
+
       .span3
+        .ribbon-wrapper
+          .ribbon.primary Profile
