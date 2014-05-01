@@ -1,11 +1,18 @@
 # == Schema Information
 #
 # Table name: products
-# code         :string
-# category_id  :string
-# price        :string
-# name         :string
-# description  :integer
+#
+#  id          :integer          not null, primary key
+#  code        :integer
+#  user_id     :integer
+#  category_id :integer
+#  price       :integer
+#  name        :string(255)
+#  description :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#  brand       :string(255)
+#
 
 class Product < ActiveRecord::Base
   has_one  :picture, as: :owner, dependent: :destroy
