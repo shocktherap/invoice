@@ -9,6 +9,8 @@ Invoice::Application.routes.draw do
       post :destroy_members # customers/:id_customer/destroy_member
     end
   end
+
+  resources :billings
   resources :categories
   resources :products
   root :to => "home#index"
