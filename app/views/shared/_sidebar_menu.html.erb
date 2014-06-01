@@ -3,11 +3,13 @@
     <div class="slim-scroll" data-scroll-height="800px" style="overflow: hidden; width: auto; height: 2432px;">
       <ul>
       <% side_menu.each do |value| %>
-        <li class="large glyphicons <%= value[:icon] %> <%= 'active' if params[:controller] ==  value[:controller] %>"><%= link_to "#{ value[:title] }".html_safe, send(value[:url]) %>
+        <li class="glyphicons <%= value[:icon] %> <%= 'active' if params[:controller] ==  value[:controller] %>"><%= link_to send(value[:url]) do %>
+          <i></i><span><%="#{ value[:title] }"%></span>
+          <% end %>
             <%= "<div class='count'>#{ current_user.customers.count }</div>".html_safe if value[:controller] == 'customers' %>
         </li>
       <% end %>
-        <li class="hasSubmenu large glyphicons t-shirt <%= 'active' if params[:controller] == 'categories' || 'products' %>">
+        <li class="glyphicons t-shirt <%= 'active' if params[:controller] == 'categories' || 'products' %>">
           <a data-toggle="collapse" href="#menu_extra" class="collapsed">Product</a>
           <ul class="collapse" id="menu_extra" style="height: 0px;">
             <li><%= link_to 'Stuff'.html_safe, products_path %></li>
@@ -15,7 +17,6 @@
           </ul>
           <div class="count"><%= Product.count %></div>
         </li>
-        <li class='large'><%= link_to 'Invoice', billings_path %></li>
       </ul>
       <div class="clearfix"></div>
       <div class="separator bottom"></div>
