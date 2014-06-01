@@ -1,5 +1,7 @@
 <div class="navbar main hidden-print">
-  <%= link_to 'Invoice', root_path, class: 'appbrand'%>
+  <%= link_to root_path, class: 'appbrand' do %>
+  <span>Invoice</span>
+  <% end %>
   </a>
 
   <button type="button" class="btn btn-navbar">
