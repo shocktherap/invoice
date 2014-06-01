@@ -11,7 +11,9 @@
                                                                url: destroy_members_customers_path,
                                                                authenticity_token: form_authenticity_token,
                                                                params_prefix: 'customer' }
-    = link_to 'Pelanggan baru', new_customer_path, class: 'btn btn-primary btn-icon glyphicons envelope pull-right'
+    = link_to new_customer_path, class: 'btn btn-primary btn-icon glyphicons user_add pull-right' do
+      i.span
+        | Pelanggan baru
     table.table.table-bordered
       thead
         tr
