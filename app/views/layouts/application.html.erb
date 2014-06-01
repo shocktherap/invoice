@@ -7,14 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render "shared/navbar_main" %>
+  <div class="container-fluid fixed menu-left">
+    <%= render "shared/navbar_main" %>
 
-  <div id="wrapper">
-    <%= render "shared/sidebar_menu" %>
-    <div id="content">
-      <%= yield %>
+    <div id="wrapper">
+      <%= render "shared/sidebar_menu" %>
+      <div id="content">
+        <%= yield %>
+      </div>
     </div>
+    <%= render "shared/footer" %>
   </div>
-  <%= render "shared/footer" %>
 </body>
 </html>
