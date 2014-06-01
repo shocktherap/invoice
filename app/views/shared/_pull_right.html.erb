@@ -6,20 +6,22 @@
     </a>
     <ul class="dropdown-menu pull-right">
       <li class="highlight profile">
-        <div>
-          <div class="heading">Profile
-            <%= link_to 'Edit Profile', edit_user_registration_path , class: 'pull-right' %></div>
-          <div class="img"></div>
-          <div class="details">
+        <span>
+          <span class="heading">Profile <%= link_to 'Edit', edit_user_registration_path , class: 'pull-right' %></span>
+          <span class="img"></span>
+          <span class="details">
+            <a href="my_account.html?lang=en&amp;layout_type=fixed&amp;menu_position=menu-left&amp;style=style-light"><%= current_user.name %></a>
             <%= current_user.email %>
-          </div>
-          <div class="clearfix"></div>
-        </div>
+          </span>
+          <span class="clearfix"></span>
+        </span>
       </li>
       <li>
-        <div>
+        <a href="my_account.html?lang=en&amp;layout_type=fixed&amp;menu_position=menu-left&amp;style=style-light" class="glyphicons cogwheel">Settings<i></i>
+        </a>
+      </li>
+      <li>
           <%= link_to 'logout', destroy_user_session_path, method: :delete, class: 'btn btn-default btn-mini pull-right' %>
-        </div>
       </li>
     </ul>
   </li>
