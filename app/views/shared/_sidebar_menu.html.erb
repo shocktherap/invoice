@@ -9,13 +9,13 @@
             <%= "<div class='count'>#{ current_user.customers.count }</div>".html_safe if value[:controller] == 'customers' %>
         </li>
       <% end %>
-        <li class="glyphicons t-shirt <%= 'active' if params[:controller] == 'categories' || 'products' %>">
-          <a data-toggle="collapse" href="#menu_extra" class="collapsed">Product</a>
+        <li class="hasSubmenu <%= 'active' if params[:controller] == 'categories' || params[:controller] == 'products' %>">
+          <a data-toggle="collapse" href="#menu_extra" class="glyphicons building"><i></i><span>Etalase</span></a>
           <ul class="collapse" id="menu_extra" style="height: 0px;">
-            <li><%= link_to 'Stuff'.html_safe, products_path %></li>
-            <li><%= link_to 'Kategori'.html_safe, categories_path %></li>
+            <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to 'Products' , products_path %></li>
+            <li class="<%= 'active' if params[:controller] == 'categories' %>"><%= link_to 'Kategori' , categories_path %></li>
           </ul>
-          <div class="count"><%= Product.count %></div>
+          <span class="count"><%= Product.count %></span>
         </li>
       </ul>
       <div class="clearfix"></div>
